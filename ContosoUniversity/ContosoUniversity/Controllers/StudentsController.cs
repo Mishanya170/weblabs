@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ContosoUniversity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ContosoUniversity.Data;
 using ContosoUniversity.Models;
 
 namespace ContosoUniversity.Controllers
@@ -29,6 +29,7 @@ namespace ContosoUniversity.Controllers
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+
             if (searchString != null)
             {
                 pageNumber = 1;
@@ -41,13 +42,12 @@ namespace ContosoUniversity.Controllers
             ViewData["CurrentFilter"] = searchString;
 
             var students = from s in _context.Students
-                select s;
+                           select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.Contains(searchString)
-                                               || s.FirstMidName.Contains(searchString));
+                                       || s.FirstMidName.Contains(searchString));
             }
-
             switch (sortOrder)
             {
                 case "name_desc":
@@ -77,10 +77,11 @@ namespace ContosoUniversity.Controllers
             }
 
             var student = await _context.Students
-                .Include(s => s.Enrollments)
-                .ThenInclude(e => e.Course)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.ID == id);
+                 .Include(s => s.Enrollments)
+                     .ThenInclude(e => e.Course)
+                 .AsNoTracking()
+                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (student == null)
             {
                 return NotFound();
@@ -96,11 +97,12 @@ namespace ContosoUniversity.Controllers
         }
 
         // POST: Students/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EnrollmentDate,LastName,FirstMidName")] Student student)
+        public async Task<IActionResult> Create(
+            [Bind("EnrollmentDate,FirstMidName,LastName")] Student student)
         {
             try
             {
@@ -113,11 +115,11 @@ namespace ContosoUniversity.Controllers
             }
             catch (DbUpdateException /* ex */)
             {
-                ModelState.AddModelError("",
-                    "Unable to save changes. " + "Try again, and if the problem persists " +
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
                     "see your system administrator.");
             }
-
             return View(student);
         }
 
@@ -134,13 +136,12 @@ namespace ContosoUniversity.Controllers
             {
                 return NotFound();
             }
-
             return View(student);
         }
 
         // POST: Students/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditPost(int? id)
@@ -149,10 +150,11 @@ namespace ContosoUniversity.Controllers
             {
                 return NotFound();
             }
-
             var studentToUpdate = await _context.Students.FirstOrDefaultAsync(s => s.ID == id);
-            if (await TryUpdateModelAsync<Student>(studentToUpdate, "", s => s.FirstMidName, s => s.LastName,
-                    s => s.EnrollmentDate))
+            if (await TryUpdateModelAsync<Student>(
+                studentToUpdate,
+                "",
+                s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
             {
                 try
                 {
@@ -161,12 +163,12 @@ namespace ContosoUniversity.Controllers
                 }
                 catch (DbUpdateException /* ex */)
                 {
-                    ModelState.AddModelError("",
-                        "Unable to save changes. " + "Try again, and if the problem persists, " +
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
                         "see your system administrator.");
                 }
             }
-
             return View(studentToUpdate);
         }
 
@@ -178,7 +180,8 @@ namespace ContosoUniversity.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Students.AsNoTracking()
+            var student = await _context.Students
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (student == null)
             {
@@ -187,13 +190,13 @@ namespace ContosoUniversity.Controllers
 
             if (saveChangesError.GetValueOrDefault())
             {
-                ViewData["ErrorMessage"] = "Delete failed. Try again, and if the problem persists " +
-                                           "see your system administrator.";
+                ViewData["ErrorMessage"] =
+                    "Delete failed. Try again, and if the problem persists " +
+                    "see your system administrator.";
             }
 
             return View(student);
         }
-
         // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -213,7 +216,8 @@ namespace ContosoUniversity.Controllers
             }
             catch (DbUpdateException /* ex */)
             {
-                return RedirectToAction(nameof(Delete), new {id = id, saveChangesError = true});
+                //Log the error (uncomment ex variable name and write a log.)
+                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
             }
         }
 

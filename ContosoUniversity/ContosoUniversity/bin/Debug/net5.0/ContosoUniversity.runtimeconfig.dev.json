@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\mixtu\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\mixtu\\.nuget\\packages"
-    ]
-  }
-}

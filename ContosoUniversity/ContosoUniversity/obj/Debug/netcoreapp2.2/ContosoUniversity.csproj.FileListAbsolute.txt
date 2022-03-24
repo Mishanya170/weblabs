@@ -1,0 +1,7 @@
+C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\ContosoUniversity\ContosoUniversity\obj\Debug\netcoreapp2.2\ContosoUniversity.csproj.AssemblyReference.cache
+C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\ContosoUniversity\ContosoUniversity\obj\Debug\netcoreapp2.2\ContosoUniversity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\ContosoUniversity\ContosoUniversity\obj\Debug\netcoreapp2.2\ContosoUniversity.AssemblyInfoInputs.cache
+C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\ContosoUniversity\ContosoUniversity\obj\Debug\netcoreapp2.2\ContosoUniversity.AssemblyInfo.cs
+C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\ContosoUniversity\ContosoUniversity\obj\Debug\netcoreapp2.2\ContosoUniversity.csproj.CoreCompileInputs.cache
+C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\ContosoUniversity\ContosoUniversity\obj\Debug\netcoreapp2.2\ContosoUniversity.RazorAssemblyInfo.cache
+C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\ContosoUniversity\ContosoUniversity\obj\Debug\netcoreapp2.2\ContosoUniversity.RazorAssemblyInfo.cs
