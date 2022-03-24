@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "tWyaGtEQLkOewzdqRLLPRYdqLgbBKp4aau476JMSjdw/qSVyw0UCeKE84vp/Vtr32qfeJ0R2gtC7XP26KncprA==",
+  "dgSpecHash": "e0OhJiTbMOp7EO0tKBwxO4v2XUCQUBBZuFMPAvU3Z3c7H/rxIeY94lq/n8m6r+SJdNiqjvGuLgrN6h7MPSc3xw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mixtu\\Desktop\\Other_files\\weblabs\\weblabs\\TodoList\\TodoList.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mixtu\\.nuget\\packages\\google.apis\\1.56.0\\google.apis.1.56.0.nupkg.sha512",
+    "C:\\Users\\mixtu\\.nuget\\packages\\google.apis.auth\\1.56.0\\google.apis.auth.1.56.0.nupkg.sha512",
+    "C:\\Users\\mixtu\\.nuget\\packages\\google.apis.core\\1.56.0\\google.apis.core.1.56.0.nupkg.sha512",
+    "C:\\Users\\mixtu\\.nuget\\packages\\google.apis.tasks.v1\\1.56.0.2384\\google.apis.tasks.v1.1.56.0.2384.nupkg.sha512",
+    "C:\\Users\\mixtu\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace TodoList.Shared
+namespace TodoList.Pages
 {
     #line hidden
     using System;
@@ -82,7 +82,8 @@ using TodoList.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/todo")]
+    public partial class Todo : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,16 +91,20 @@ using TodoList.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\TodoList\Shared\NavMenu.razor"
+#line 18 "C:\Users\mixtu\Desktop\Other_files\weblabs\weblabs\TodoList\Pages\Todo.razor"
        
-    private bool collapseNavMenu = true;
+    private List<TodoItem> todos = new();
+    private string newTodo;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    private void AddTodo()
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (!string.IsNullOrWhiteSpace(newTodo))
+        {
+            todos.Add(new TodoItem {Title = newTodo});
+            newTodo = string.Empty;
+        }
     }
+
 
 #line default
 #line hidden

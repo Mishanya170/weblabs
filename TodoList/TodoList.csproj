@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Tasks.v1" Version="1.56.0.2384" />
+  </ItemGroup>
+
 </Project>
